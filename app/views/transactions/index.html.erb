@@ -15,6 +15,7 @@ Balance for Krystina: 3516 KC
 
 
 <!-- Step #1 -->
+<h2>Transactions</h2>
 <% transactions = Transaction.all %>
 <% users = User.all %>
 
@@ -32,6 +33,7 @@ Balance for Krystina: 3516 KC
 </ol>
 
 <!-- Step #2 -->
+<h2>Account Balances</h2>
  <% bens_balance = 0 %>
  <% brians_balance = 0 %>
  <% evans_balance = 0 %>
@@ -74,10 +76,10 @@ Balance for Krystina: 3516 KC
 
 <!-- Printing the balances -->
 
-<li> Brian's balance <%= brians_balance %> </li>
-<li> Ben's balance <%= bens_balance%> </li>
-<li> Evan's balance  <%= evans_balance %> </li>
-<li> Anthony's balance  <%= anthonys_balance %> </li>
-<li> Kristina's balance  <%= krystinas_balance %> </li>
+<li> Brian's balance - <%= brians_balance %> KC </li>
+<li> Ben's balance - <%= bens_balance%> KC </li>
+<li> Evan's balance - <%= evans_balance %> KC </li>
+<li> Anthony's balance - <%= anthonys_balance %> KC </li>
+<li> Kristina's balance - <%= krystinas_balance %> KC </li>
 
  </ol>
