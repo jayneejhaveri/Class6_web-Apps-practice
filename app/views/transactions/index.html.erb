@@ -20,8 +20,6 @@ Balance for Krystina: 3516 KC
 <ol>
 <% for transaction in transactions %>
 
-
-    
    <% from_user_name = User.find_by(id: transaction["from_user_id"])&.name %>
    <% to_user_name = User.find_by(id: transaction["to_user_id"])&.name %>
 
@@ -29,7 +27,40 @@ Balance for Krystina: 3516 KC
 
 <%= transaction["amount"]%> from <%= from_user_name %> to <%= to_user_name %> 
 
+
 </li>
 <% end %>
+
+ </ol>
+
+ <% bens_balance = 0 %>
+ <% brians_balance = 0 %>
+ <% evans_balance = 0 %>
+ <% anthonys_balance = 0 %>
+ <% krystinas_balance = 0 %>
+
+ <ol>
+<% for transaction in transactions %>
+
+   <% from_user_name = User.find_by(id: transaction["from_user_id"])&.name %>
+   <% to_user_name = User.find_by(id: transaction["to_user_id"])&.name %>
+
+ <% if from_user_name == "Ben" %>
+    <% bens_balance = transaction["amount"] %>
+  <% elsif transaction["from_user_name"] == "Brian" %>
+    <% brians_balance -= transaction["amount"] %>
+  <% elsif transaction["from_user_name"] == "Evan" %>
+    <% evans_balance -= transaction["amount"] %>
+  <% elsif transaction["from_user_name"] == "Anthony" %>
+    <% anthonys_balance -= transaction["amount"] %>
+  <% elsif transaction["from_user_name"] == "Krystina" %>
+    <% krystinas_balance -= transaction["amount"] %>
+  <% end %>
+
+<% end %>
+
+<li> Ben's balance <%= bens_balance%> </li>
+<li> Brians balance <%= brians_balance %> </li>
+<li> Evans balance  <%= evans_balance %> </li>
 
  </ol>
